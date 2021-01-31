@@ -1,5 +1,15 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="navbar-nav w-100">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active">Home</a>
+        <a class="nav-item nav-link" routerLink="/accounts" routerLinkActive="active">Accounts</a>
+        <a class="nav-item nav-link" routerLink="/expenses" routerLinkActive="active">Expenses</a>
+        <a class="nav-item nav-link" routerLink="/todo" routerLinkActive="active">Todos</a>
+        <a class="nav-item nav-link ml-auto logout-item" (click)="logout()">Logout</a>
+    </div>
+</nav>
 <div class="p-4">
     <div class="container">
-        <h1>Hi {{user?.firstName}}</h1>
+        <div>Hi {{user?.firstName}}</div>
+        <router-outlet></router-outlet>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../models/user';
+import { UserService } from '../services/user.service';
 
 @Component({
     selector: 'app-home',
@@ -9,6 +10,13 @@ import { User } from '../models/user';
 export class HomeComponent {
     user: User;
 
-    constructor() {
+    constructor(
+        private userService: UserService
+    ) {
+        this.user = this.userService.userAccount;
+    }
+
+    logout() {
+        this.userService.logout();
     }
 }

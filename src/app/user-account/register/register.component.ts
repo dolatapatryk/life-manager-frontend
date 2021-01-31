@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { finalize } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface NewUser {
     username?: string;
@@ -21,7 +22,9 @@ export class RegisterComponent {
     loading = false;
 
     constructor(
-        private userService: UserService
+        private userService: UserService,
+        private router: Router,
+        private route: ActivatedRoute
     ) {
     }
 
@@ -30,6 +33,14 @@ export class RegisterComponent {
         this.loading = true;
         this.userService.register(this.newUser)
             .pipe(finalize(() => this.loading = false))
-            .subscribe(response => console.log(':::success register', response), error => console.log(':::error reg', error));
+            .subscribe(() => this.onSuccessRegister(), error => this.onErrorRegister(error));
+    }
+
+    private onSuccessRegister() {
+        this.router.navigate(['../login'], { relativeTo: this.route });
+    }
+
+    private onErrorRegister(error) {
+        console.log(':::error', error);
     }
 }
