@@ -7,9 +7,6 @@
         <a class="nav-item nav-link ml-auto logout-item" (click)="logout()">Logout</a>
     </div>
 </nav>
-<div class="p-4">
-    <div class="container">
-        <div>Hi {{user?.firstName}}</div>
-        <router-outlet></router-outlet>
-    </div>
+<div class="home-container">
+    <router-outlet></router-outlet>
 </div>
