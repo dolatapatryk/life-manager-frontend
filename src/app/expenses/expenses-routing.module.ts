@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExpensesLayoutComponent } from './expenses-layout/expenses-layout.component';
-import { ExpensesListComponent } from './expenses-list/expenses-list.component';
+import { ExpensesTableComponent } from './expenses-table/expenses-table.component';
 
 
 const routes: Routes = [
@@ -9,7 +9,7 @@ const routes: Routes = [
         path: '',
         component: ExpensesLayoutComponent,
         children: [
-            { path: '', component: ExpensesListComponent }
+            { path: '', component: ExpensesTableComponent }
         ]
     }
 ];

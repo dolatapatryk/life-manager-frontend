@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Account } from '../models/account';
 
 @Injectable({
     providedIn: 'root'
@@ -13,6 +14,6 @@ export class AccountService {
     }
 
     getAccounts() {
-        return this.http.get<Array<Account>>(`${environment.apiUrl}/accounts`);
+        return this.http.get<Account[]>(`${environment.apiUrl}/accounts`);
     }
 }

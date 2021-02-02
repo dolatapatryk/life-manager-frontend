@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountsListComponent } from './accounts-list/accounts-list.component';
+import { AccountsTableComponent } from './accounts-table/accounts-table.component';
 
 
 const routes: Routes = [
-    { path: '', component: AccountsListComponent }
+    { path: '', component: AccountsTableComponent }
 ];
 
 @NgModule({

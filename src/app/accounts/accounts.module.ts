@@ -2,18 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AccountsRoutingModule } from './accounts-routing.module';
-import { AccountsListComponent } from './accounts-list/accounts-list.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { AccountsTableComponent } from './accounts-table/accounts-table.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [AccountsListComponent],
+    declarations: [AccountsTableComponent],
     imports: [
         CommonModule,
         AccountsRoutingModule,
-        MatTableModule,
-        MatPaginatorModule
+        SharedModule
     ]
 })
-export class AccountsModule { }
+export class AccountsModule {
+}
