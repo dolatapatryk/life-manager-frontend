@@ -1,1 +1,7 @@
-<p>category-expenses-table works!</p>
+<div>
+    <div class="d-flex flex-column">
+        <h1>{{category.name}}</h1>
+        <h3>{{category.description}}</h3>
+    </div>
+    <app-expenses-table [categoryId]="category?.id"></app-expenses-table>
+</div>

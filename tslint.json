@@ -127,6 +127,13 @@
                 "check-preblock",
                 "check-postbrace"
             ]
+        },
+        "variable-name": {
+            "options": [
+                "ban-keywords",
+                "check-format",
+                "allow-leading-underscore"
+            ]
         }
     },
     "rulesDirectory": [
