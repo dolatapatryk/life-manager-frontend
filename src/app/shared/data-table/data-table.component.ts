@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Column } from './column';
+import { Column, ColumnType } from './column';
 
 @Component({
     selector: 'app-data-table',
@@ -18,6 +18,8 @@ export class DataTableComponent<T> implements OnInit {
     @Input() pageSize = 25;
     dataSource = new MatTableDataSource<T>();
     columnNames: string[];
+    columnTypes = ColumnType;
+    defaultDateFormat = 'yyyy-MM-dd HH:mm';
 
     constructor() {
     }

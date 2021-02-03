@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Expense } from '../../models/expense';
-import { Column } from '../../shared/data-table/column';
+import { Column, ColumnType } from '../../shared/data-table/column';
+import { ExpenseService } from '../../services/expense.service';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { ExpenseCategoryService } from '../../services/expense-category.service';
 
 @Component({
     selector: 'app-expenses-list',
@@ -8,23 +12,31 @@ import { Column } from '../../shared/data-table/column';
     styleUrls: ['./expenses-table.component.scss']
 })
 export class ExpensesTableComponent implements OnInit {
-    expenses: Array<Expense> = [{
-        amount: 125.5,
-        date: 1612197767000,
-        accountId: 2,
-        categoryId: 1
-    }];
+    expenses: Expense[];
+    categoryId: number;
+    categorySub: Subscription;
     columns: Column<Expense>[] = [
         { name: 'amount' },
-        { name: 'date' },
+        { name: 'date', type: ColumnType.DATE },
         { name: 'accountId' },
         { name: 'categoryId' }
     ];
 
-    constructor() {
+    constructor(private expenseService: ExpenseService, private route: ActivatedRoute) {
+        this.categoryId = +this.route.snapshot.params.categoryId;
     }
 
     ngOnInit(): void {
+        console.log('::::init');
+        this.categorySub = this.route.params.subscribe(({ categoryId }) => {
+            this.categoryId = +categoryId;
+            this.loadData();
+        });
+        this.loadData();
     }
 
+    loadData() {
+        const request = !!this.categoryId ? this.expenseService.getExpensesByCategory(this.categoryId) : this.expenseService.getExpenses();
+        request.subscribe(expenses => this.expenses = expenses);
+    }
 }

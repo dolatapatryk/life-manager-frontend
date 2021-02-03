@@ -8,10 +8,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { ExpensesTableComponent } from './expenses-table/expenses-table.component';
 import { SharedModule } from '../shared/shared.module';
+import { CategoryExpensesTableComponent } from './category-expenses-table/category-expenses-table.component';
 
 
 @NgModule({
-    declarations: [ExpensesLayoutComponent, ExpensesTableComponent],
+    declarations: [ExpensesLayoutComponent, ExpensesTableComponent, CategoryExpensesTableComponent],
     imports: [
         CommonModule,
         ExpensesRoutingModule,

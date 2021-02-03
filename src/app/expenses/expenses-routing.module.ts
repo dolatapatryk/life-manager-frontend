@@ -9,7 +9,11 @@ const routes: Routes = [
         path: '',
         component: ExpensesLayoutComponent,
         children: [
-            { path: '', component: ExpensesTableComponent }
+            // { path: '', component: ExpensesTableComponent },
+            {
+                path: 'categories/:categoryId',
+                component: ExpensesTableComponent
+            }
         ]
     }
 ];
