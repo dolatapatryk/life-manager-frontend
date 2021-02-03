@@ -1,12 +1,16 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="false">
-    <mat-drawer #drawer [mode]="'side'" [opened]="true">
+<mat-drawer-container class="example-container" [hasBackdrop]="false" [autosize]="true">
+    <mat-drawer class="h-100" #drawer [mode]="'side'" [opened]="true">
         <div class="d-flex flex-column h-100">
             <app-sidebar-tree [data]="sidebarNodes"></app-sidebar-tree>
-            <button class="mt-auto" mat-raised-button (click)="drawer.toggle()">Toggle</button>
+<!--            <button class="mt-auto" mat-raised-button (click)="drawer.toggle()">Toggle</button>-->
         </div>
     </mat-drawer>
     <mat-drawer-content>
-        <button mat-raised-button (click)="drawer.toggle()">Toggle</button>
+        <mat-button-toggle class="toggle-sidebar-button" (click)="drawer.toggle()">
+            <mat-icon class="mat-icon-rtl-mirror">
+                {{'chevron_left'}}
+            </mat-icon>
+        </mat-button-toggle>
         <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ExpensesTableComponent } from './expenses-table/expenses-table.component';
 import { SharedModule } from '../shared/shared.module';
 import { CategoryExpensesTableComponent } from './category-expenses-table/category-expenses-table.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { CategoryExpensesTableComponent } from './category-expenses-table/catego
         MatSidenavModule,
         MatListModule,
         MatButtonModule,
-        SharedModule
+        SharedModule,
+        MatButtonToggleModule,
+        MatIconModule
     ]
 })
 export class ExpensesModule {
