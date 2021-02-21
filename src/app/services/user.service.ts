@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { environment } from '../../environments/environment';
 import { LoginInfo } from '../models/login-info';
 import { map } from 'rxjs/operators';
+import { NewUser } from '../user-account/register/register.component';
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +27,8 @@ export class UserService {
         return this.userSub.value;
     }
 
-    register(user: User) {
+    register(user: NewUser) {
+        return this.http.post<NewUser>(`${environment.apiUrl}/users/register`, user);
     }
 
     login(loginInfo: LoginInfo) {

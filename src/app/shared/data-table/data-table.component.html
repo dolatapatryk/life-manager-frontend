@@ -1,0 +1,26 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container [matColumnDef]="'position'">
+        <mat-header-cell *matHeaderCellDef>No.</mat-header-cell>
+        <mat-cell *matCellDef="let row, let i = index">
+            {{i + 1}}
+        </mat-cell>
+    </ng-container>
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.name">
+        <mat-header-cell *matHeaderCellDef>{{column.name}}</mat-header-cell>
+        <ng-template [ngIf]="column.type === columnTypes.DATE" [ngIfElse]="textColumn">
+            <mat-cell *matCellDef="let row">
+                {{row[column.name] | date:defaultDateFormat}}
+            </mat-cell>
+        </ng-template>
+        <ng-template #textColumn>
+            <mat-cell *matCellDef="let row">
+                {{row[column.name]}}
+            </mat-cell>
+        </ng-template>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnNames; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columnNames"></mat-row>
+</mat-table>
+<mat-paginator [showFirstLastButtons]="true" [pageSizeOptions]="pageSizeOptions"
+               [pageSize]="pageSize"></mat-paginator>
