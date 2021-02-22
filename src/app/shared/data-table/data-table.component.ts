@@ -21,9 +21,6 @@ export class DataTableComponent<T> implements OnInit {
     columnTypes = ColumnType;
     defaultDateFormat = 'yyyy-MM-dd HH:mm';
 
-    constructor() {
-    }
-
     ngOnInit(): void {
         this.columnNames = ['position', ...this.columns.map(column => column.name.toString())];
     }

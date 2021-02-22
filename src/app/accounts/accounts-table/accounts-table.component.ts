@@ -11,8 +11,8 @@ import { Account } from '../../models/account';
 export class AccountsTableComponent implements OnInit {
     accounts: Account[];
     columns: Column<Account>[] = [
-        { name: 'name', sortable: true},
-        { name: 'balance', sortable: true}
+        { name: 'name', sortable: true },
+        { name: 'balance', sortable: true }
     ];
 
     constructor(

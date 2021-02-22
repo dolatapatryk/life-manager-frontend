@@ -8,14 +8,16 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { TableLayoutComponent } from './table-layout/table-layout.component';
 
 
 
 @NgModule({
-    declarations: [DataTableComponent, SidebarTreeComponent],
+    declarations: [DataTableComponent, SidebarTreeComponent, TableLayoutComponent],
     exports: [
         DataTableComponent,
-        SidebarTreeComponent
+        SidebarTreeComponent,
+        TableLayoutComponent
     ],
     imports: [
         CommonModule,

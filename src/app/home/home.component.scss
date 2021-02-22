@@ -1,7 +1,13 @@
+@import "~src/variables";
+
 .logout-item {
     cursor: pointer;
 }
 
+nav.navbar {
+    height: $navbar-height;
+}
+
 .home-container {
-    height: calc(100vh - 52px);
+    height: calc(100vh - #{$navbar-height});
 }

@@ -1,0 +1,15 @@
+@import "~src/variables";
+
+$table-container-height: calc(100vh - #{$navbar-height} - #{$table-layout-header-height} - 35px);
+
+div.header {
+    height: $table-layout-header-height;
+}
+
+:host ::ng-deep div.table-container {
+    height: $table-container-height;
+}
+
+:host ::ng-deep div.table-container mat-table {
+    height: calc(#{$table-container-height} - #{$paginator-height});
+}

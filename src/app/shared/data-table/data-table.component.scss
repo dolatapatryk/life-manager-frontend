@@ -1,0 +1,12 @@
+@import "~src/variables";
+
+:host ::ng-deep .mat-paginator-container {
+    height: $paginator-height !important;
+    min-height: $paginator-height !important;
+    flex-wrap: unset;
+}
+
+:host ::ng-deep .mat-paginator-outer-container {
+    border: solid darkgrey;
+    border-width: 0.25px 0;
+}

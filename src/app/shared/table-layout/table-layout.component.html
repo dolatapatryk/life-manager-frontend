@@ -1,0 +1,11 @@
+<div class="p-3 h-100">
+    <div class="header d-flex">
+        <div class="w-100">
+            <ng-content select="table-layout-header"></ng-content>
+        </div>
+        <button mat-button class="ml-auto" (click)="navigateToAddRoute()">Add</button>
+    </div>
+    <app-data-table [data]="data" [columns]="columns" [pageSize]="pageSize"
+                    [pageSizeOptions]="pageSizeOptions"></app-data-table>
+    <router-outlet></router-outlet>
+</div>
